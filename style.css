@@ -1,0 +1,101 @@
+* {
+    padding: 0;
+    margin: 0;
+}
+
+body {
+    box-sizing: border-box;
+    display: grid;
+    place-items: center;
+    min-height: 100vh;
+    background-color: rgb(127, 157, 255);
+}
+
+.newGame {
+    background-color: aqua;
+    color: black;
+}
+button {
+    padding: 10px;
+    border-radius: 10px;
+    border: none;
+    color: white;
+    background-color: blueviolet;
+    cursor: pointer;
+    font-weight: 800;
+}
+
+
+.display {
+    width: 320px;
+    height: 170px;
+    border: 3px solid darkblue;
+    margin-top: 20px;
+    display: flex;
+    flex-direction: row-reverse;
+    align-items: center;
+    justify-content: space-evenly;
+
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    font-size: 1.3rem;
+    font-weight: 700;
+}
+
+.result {
+    width: 320px;
+    height: 100px;
+    border: 2px solid rgb(139, 113, 0);
+    margin-top: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-evenly;
+    padding: 12px;
+}
+
+.theIner {
+    display: flex;
+    flex-direction: column;
+
+    justify-content: space-around;
+    align-items: center;
+    gap: 10px;
+}
+.me {
+    color: rgb(0, 139, 81);
+}
+.computer {
+  color:  rgb(139, 0, 104)
+}
+
+.movedisplay  {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    gap: 10px;
+}
+
+.mychoice {
+    width: 100px;
+    height: 70px;
+    border: 9px solid rgb(0, 139, 81);
+}
+.comchoice {
+    width: 100px;
+    height: 70px;
+    border: 9px solid rgb(139, 0, 104);
+}
+
+.mychoice, .comchoice {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 800;
+}
+
+.wrap {
+    display: flex;
+    gap: 10px;
+    margin-top: 10px;
+}
