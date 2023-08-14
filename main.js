@@ -1,107 +1,84 @@
-
 let rock = document.querySelector('.Rock')
 let paper = document.querySelector('.paper')
 let scissor = document.querySelector('.scissor')
-let newGame = document.querySelector('.newGame')
-
+let newbtn = document.querySelector('.newGame')
 let myChoice = document.querySelector('.mychoice')
 let comChoice = document.querySelector('.comchoice')
 let scoreMassage = document.querySelector('.scoreMassage')
-
 let scoreHistory = document.querySelector('.scoreHistory')
-
-//console.log(scoreHistory);
-deRock = () => {
-    const present = 'ROCK'
-    myChoice.innerHTML = present
-    meVsComputer(present)
+//console.log(comChoice);
+let insight = null;
+myRock = () => {
+    insight = 'ROCK'  
+    myChoice.innerHTML = insight
+    resultDetected('ROCK')
 }
 
-dePaper = () => {
-    let present = 'PAPER'
-    myChoice.innerHTML = present
-    meVsComputer(present)
+myPaper = () => {
+    insight = 'PAPER'  
+    myChoice.innerHTML = insight
+    resultDetected('ROCK')
 }
 
-deScissor = () => {
-    const present = 'SCISSOR'
-    myChoice.innerHTML = present
-    meVsComputer(present)
+myScissor = () => {
+    insight = 'SCISSOR'  
+    myChoice.innerHTML = insight
+    resultDetected('ROCK')
 }
 
-deNewGame = () => {
-    myChoice.innerHTML = ''
-    comChoice.innerHTML = ''
-    scoreMassage.innerHTML = ''
+myNewbtn = () => {
+    comChoice.innerHTML =  null
+    myChoice.innerHTML = null
+    scoreMassage.innerHTML = null
 }
 
-rock.addEventListener('click', deRock)
-paper.addEventListener('click', dePaper)
-scissor.addEventListener('click', deScissor)
-newGame.addEventListener('click', deNewGame)
+rock.addEventListener('click', myRock)
+paper.addEventListener('click', myPaper)
+scissor.addEventListener('click', myScissor)
+newbtn.addEventListener('click', myNewbtn)
 
-
-function computerMove() {
-    let ranDomNumber = Math.floor(Math.random() * 6) + 1
-    let result = ''
-    if (ranDomNumber === 1 || ranDomNumber === 6) {
-        result = 'ROCK'
-    } else if (ranDomNumber === 3 || ranDomNumber === 5) {
-        result = 'PAPER'
-    } else if (ranDomNumber === 2 || ranDomNumber === 4) {
-        result = 'SCISSOR'
+computerMove = () => {
+    let ranDom = Math.floor(Math.random() * 6) + 1
+    let result = null
+    if (ranDom === 1 || ranDom === 6) {
+        result = 'ROCK';
+    } else if (ranDom === 3 || ranDom === 5) {
+        result = 'PAPER';
+    } else if (ranDom === 2 || ranDom === 4) {
+        result ='SCISSOR';
     }
 
-    return comChoice.innerHTML = result
+    return comChoice.innerHTML =  result
 }
 
-let allScore = JSON.parse(localStorage.getItem('allscore')) 
-
-
-meVsComputer = (option) => {
-    let result = ''
-    let move = computerMove()
-    
+resultDetected = (option) => {
+    let result = null
+    let computMove = computerMove()
     if (option === 'ROCK') {
-        if (move === 'ROCK') {
-            result = 'Tie Game'
-        } else if (move === 'PAPER') {
-            result = 'You lost'
-        } else if (move === 'SCISSOR') {
-            result = 'You Win'
-        }
+        if (computMove === 'ROCK') {
+            result = 'Tie Game';
+        } else if (computMove === 'PAPER') {
+            result = 'You lost';
+        }  else if (computMove === 'SCISSOR') {
+            result = 'You Win';
+        } 
     } else if (option === 'PAPER') {
-        if (move === 'ROCK') {
-            result = 'You Win'
-        } else if (move === 'PAPER') {
-            result = 'Tie Game'
-        } else if (move === 'SCISSOR') {
-            result = 'You lost'
-        }
+        if (computMove === 'ROCK') {
+            result = 'You Win';
+        } else if (computMove === 'PAPER') {
+            result = 'Tie Game';
+        }  else if (computMove === 'SCISSOR') {
+            result = 'You lost';
+        } 
     } else if (option === 'SCISSOR') {
-        if (move === 'ROCK') {
-            result = 'You lost'
-        } else if (move === 'PAPER') {
-            result = 'You Win'
-        } else if (move === 'SCISSOR') {
-            result = 'Tie Game'
-        }
+        if (computMove === 'ROCK') {
+            result = 'You lost';
+        } else if (computMove === 'PAPER') {
+            result = 'You Win';
+        }  else if (computMove === 'SCISSOR') {
+            result = 'Tie Game';
+        } 
     }
 
-    if (result === 'You Win') {
-        allScore.win += 1
-    } else if (result === 'You lost') {
-        allScore.lost += 1
-    } else if (result === 'Tie Game') {
-        allScore.tie += 1
-    }
-
-    localStorage.setItem('allscore', JSON.stringify(allScore))
-    scoreHistory.innerHTML = ` win: ${allScore.win}, lose: ${allScore.lost}, tie game: ${allScore.tie}`
-    return scoreMassage.innerHTML = `You choose ${option} and computer choose ${move}, ${result}`
-   
+    return scoreMassage.innerHTML = `You choosed ${option} and computer choose ${computMove}, ${result}`
 }
-
-
-
-
