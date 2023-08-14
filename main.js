@@ -11,19 +11,19 @@ let insight = null;
 myRock = () => {
     insight = 'ROCK'  
     myChoice.innerHTML = insight
-    resultDetected('ROCK')
+    resultDetected(insight)
 }
 
 myPaper = () => {
     insight = 'PAPER'  
     myChoice.innerHTML = insight
-    resultDetected('ROCK')
+    resultDetected(insight)
 }
 
 myScissor = () => {
     insight = 'SCISSOR'  
     myChoice.innerHTML = insight
-    resultDetected('ROCK')
+    resultDetected(insight)
 }
 
 myNewbtn = () => {
