@@ -6,22 +6,24 @@ let myChoice = document.querySelector('.mychoice')
 let comChoice = document.querySelector('.comchoice')
 let scoreMassage = document.querySelector('.scoreMassage')
 let scoreHistory = document.querySelector('.scoreHistory')
+let sumbit = document.querySelector('.theresult')
+
 //console.log(comChoice);
 let insight = null;
 myRock = () => {
-    insight = 'ROCK'  
+    insight = '✊'  
     myChoice.innerHTML = insight
     resultDetected(insight)
 }
 
 myPaper = () => {
-    insight = 'PAPER'  
+    insight = '🖐'  
     myChoice.innerHTML = insight
     resultDetected(insight)
 }
 
 myScissor = () => {
-    insight = 'SCISSOR'  
+    insight = '✌️'  
     myChoice.innerHTML = insight
     resultDetected(insight)
 }
@@ -30,6 +32,7 @@ myNewbtn = () => {
     comChoice.innerHTML =  null
     myChoice.innerHTML = null
     scoreMassage.innerHTML = null
+    sumbit.innerHTML = null
 }
 
 rock.addEventListener('click', myRock)
@@ -41,44 +44,109 @@ computerMove = () => {
     let ranDom = Math.floor(Math.random() * 6) + 1
     let result = null
     if (ranDom === 1 || ranDom === 6) {
-        result = 'ROCK';
+        result = '✊';
     } else if (ranDom === 3 || ranDom === 5) {
-        result = 'PAPER';
+        result = '🖐';
     } else if (ranDom === 2 || ranDom === 4) {
-        result ='SCISSOR';
+        result ='✌️';
     }
 
     return comChoice.innerHTML =  result
 }
+let history = JSON.parse(localStorage.getItem('score')) || {
+    win: 0,
+    lose: 0,
+    tie: 0
+} 
 
+/*{
+    win: 0,
+    lose: 0,
+    tie: 0
+} */
+
+//localStorage.removeItem('score')
+
+console.log()
+let sum = null
 resultDetected = (option) => {
-    let result = null
     let computMove = computerMove()
-    if (option === 'ROCK') {
-        if (computMove === 'ROCK') {
-            result = 'Tie Game';
-        } else if (computMove === 'PAPER') {
-            result = 'You lost';
-        }  else if (computMove === 'SCISSOR') {
-            result = 'You Win';
+    if (option === '✊') {
+        if (computMove === '✊') {
+            sum = 'Tie Game';
+        } else if (computMove === '🖐') {
+            sum = 'You lost';
+        }  else if (computMove === '✌️') {
+            sum = 'You Win';
         } 
-    } else if (option === 'PAPER') {
-        if (computMove === 'ROCK') {
-            result = 'You Win';
-        } else if (computMove === 'PAPER') {
-            result = 'Tie Game';
-        }  else if (computMove === 'SCISSOR') {
-            result = 'You lost';
+    } else if (option === '🖐') {
+        if (computMove === '✊') {
+            sum = 'You Win';
+        } else if (computMove === '🖐') {
+            sum = 'Tie Game';
+        }  else if (computMove === '✌️') {
+            sum = 'You lost';
         } 
-    } else if (option === 'SCISSOR') {
-        if (computMove === 'ROCK') {
-            result = 'You lost';
-        } else if (computMove === 'PAPER') {
-            result = 'You Win';
-        }  else if (computMove === 'SCISSOR') {
-            result = 'Tie Game';
+    } else if (option === '✌️') {
+        if (computMove === '✊') {
+            sum = 'You lost';
+        } else if (computMove === '🖐') {
+            sum = 'You Win';
+        }  else if (computMove === '✌️') {
+            sum = 'Tie Game';
         } 
     }
 
-    return scoreMassage.innerHTML = `You choosed ${option} and computer choose ${computMove}, ${result}`
+    if (sum === 'You Win') {
+        history.win += 1
+    } else if (sum === 'You lost') {
+        history.lose += 1
+    } else if (sum === 'Tie Game') {
+        history.tie += 1
+    }
+
+    localStorage.setItem('score', JSON.stringify(history))
+    
+    scoreHistory.innerHTML = `Win: ${history.win}, Lost: ${history.lose} and Tie game ${history.tie} </br><button class="resetbtn reset">Reset Scores</button>`
+
+    /*if (document.querySelector('.resetbtn')) {
+        let me = document.querySelector('.resetbtn')
+        console.log(me)
+        me.add
+    }*/
+
+    let me = document.querySelector('.resetbtn')
+    console.log(me)
+    me.addEventListener('click', function(){
+        localStorage.removeItem('score')
+    })
+
+    sumbit.innerText = sum
+
+    if (sum === 'You Win') {
+        sumbit.classList.add('green')
+
+            if(sumbit.classList.contains('red')){
+                sumbit.classList.replace('red', 'green') 
+            } else if(sumbit.classList.contains('yellow')){
+                sumbit.classList.replace('yellow', 'green') 
+            }
+    } else if (sum === 'You lost') {
+        sumbit.classList.add('red')
+        if(sumbit.classList.contains('green')){
+            sumbit.classList.replace('green', 'red') 
+        } else if(sumbit.classList.contains('yellow')){
+            sumbit.classList.replace('yellow', 'red') 
+        }
+    } else if (sum === 'Tie Game') {
+        sumbit.classList.add('yellow')
+        if(sumbit.classList.contains('green')){
+            sumbit.classList.replace('green', 'yellow') 
+        } else if(sumbit.classList.contains('red')){
+            sumbit.classList.replace('red', 'yellow') 
+        }
+    }
+    
+    return scoreMassage.innerHTML = `You-${option} VS ${computMove}-computer`
 }
+
