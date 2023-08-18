@@ -63,7 +63,7 @@ let history = JSON.parse(localStorage.getItem('score')) || {
 update()
 function update() {
     scoreHistory.innerHTML = `
-    Win: ${history.win} | Lost: ${history.lose} | Tie ${history.tie}`
+    🏆: ${history.win} | 🤦‍♂: ${history.lose} | 🪢 ${history.tie}`
 }
 
 
@@ -92,35 +92,35 @@ resultDetected = (option) => {
     let computMove = computerMove()
     if (option === '✊') {
         if (computMove === '✊') {
-            sum = 'Tie Game';
+            sum = 'Tie Game 🪢';
         } else if (computMove === '🖐') {
-            sum = 'You lost';
+            sum = 'You lost 🤦‍♂';
         }  else if (computMove === '✌️') {
-            sum = 'You Win';
+            sum = 'You Win 🏆';
         } 
     } else if (option === '🖐') {
         if (computMove === '✊') {
-            sum = 'You Win';
+            sum = 'You Win 🏆';
         } else if (computMove === '🖐') {
-            sum = 'Tie Game';
+            sum = 'Tie Game 🪢';
         }  else if (computMove === '✌️') {
-            sum = 'You lost';
+            sum = 'You lost 🤦‍♂';
         } 
     } else if (option === '✌️') {
         if (computMove === '✊') {
-            sum = 'You lost';
+            sum = 'You lost 🤦‍♂';
         } else if (computMove === '🖐') {
-            sum = 'You Win';
+            sum = 'You Win 🏆';
         }  else if (computMove === '✌️') {
-            sum = 'Tie Game';
+            sum = 'Tie Game 🪢';
         } 
     }
 
-    if (sum === 'You Win') {
+    if (sum === 'You Win 🏆') {
         history.win += 1
-    } else if (sum === 'You lost') {
+    } else if (sum === 'You lost 🤦‍♂') {
         history.lose += 1
-    } else if (sum === 'Tie Game') {
+    } else if (sum === 'Tie Game 🪢') {
         history.tie += 1
     }
 
@@ -161,5 +161,5 @@ resultDetected = (option) => {
         }
     }
     
-    return scoreMassage.innerHTML = `You-${option} VS ${computMove}-computer`
+    return scoreMassage.innerHTML = `🙍‍♂-${option} VS ${computMove}-🤖`
 }

@@ -136,9 +136,11 @@ button:hover {
 }
 .me {
     color: rgb(0, 139, 81);
+    font-size: 2rem;
 }
 .computer {
-  color:  rgb(139, 0, 104)
+  color:  rgb(139, 0, 104);
+  font-size: 2rem;
 }
 
 .movedisplay  {
