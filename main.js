@@ -53,11 +53,30 @@ computerMove = () => {
 
     return comChoice.innerHTML =  result
 }
+
 let history = JSON.parse(localStorage.getItem('score')) || {
     win: 0,
     lose: 0,
     tie: 0
 } 
+
+update()
+function update() {
+    scoreHistory.innerHTML = `
+    Win: ${history.win} | Lost: ${history.lose} | Tie ${history.tie}`
+}
+
+
+let me = document.querySelector('.resetbtn')
+
+console.log(me)
+    me.addEventListener('click', function(){
+        localStorage.removeItem('score')
+        history.win = 0;
+        history.lose = 0;
+        history.tie = 0;
+        update()
+    })
 
 /*{
     win: 0,
@@ -107,19 +126,13 @@ resultDetected = (option) => {
 
     localStorage.setItem('score', JSON.stringify(history))
     
-    scoreHistory.innerHTML = `Win: ${history.win}, Lost: ${history.lose} and Tie game ${history.tie} </br><button class="resetbtn reset">Reset Scores</button>`
+    update()
 
     /*if (document.querySelector('.resetbtn')) {
         let me = document.querySelector('.resetbtn')
         console.log(me)
         me.add
     }*/
-
-    let me = document.querySelector('.resetbtn')
-    console.log(me)
-    me.addEventListener('click', function(){
-        localStorage.removeItem('score')
-    })
 
     sumbit.innerText = sum
 
@@ -131,6 +144,7 @@ resultDetected = (option) => {
             } else if(sumbit.classList.contains('yellow')){
                 sumbit.classList.replace('yellow', 'green') 
             }
+
     } else if (sum === 'You lost') {
         sumbit.classList.add('red')
         if(sumbit.classList.contains('green')){
@@ -149,4 +163,3 @@ resultDetected = (option) => {
     
     return scoreMassage.innerHTML = `You-${option} VS ${computMove}-computer`
 }
-
