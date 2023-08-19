@@ -7,8 +7,12 @@
     <link rel="stylesheet" href="style.css">
     <title>rock, paper and scissor</title>
 </head>
-<body>
+<body class="body">
+    <main>
     <h1>Rock, Paper & Scissor</h1>
+    <button class="back">
+        <svg xmlns="http://www.w3.org/2000/svg" height="1em" viewBox="0 0 512 512"><path d="M448 256c0-106-86-192-192-192V448c106 0 192-86 192-192zM0 256a256 256 0 1 1 512 0A256 256 0 1 1 0 256z"/></svg>
+    </button>
     
     <button class="newGame">New Game</button>
     <div class="wrap">
@@ -35,9 +39,11 @@
             <h3 class="theresult"></h3>
         </div>
     </div>
-
+<div class="absolute">
  <div class="resulted">
-    <P class="scoreMassage"></P>
+   <!--  <P class="scoreMassage"></P> -->
+    <p>Ask me to choose for you</p>
+    <button class="asktochoose">Ask for it</button>
  </div>
 
  <div class="result">
@@ -45,6 +51,17 @@
     <P class="scoreHistory"></P>
     <button class="resetbtn reset">Reset Scores</button>
  </div>
+</div>
+</main>
+ <footer>
+<p>&copy; heisemmaco</p> 
+
+<div class="wrap">
+<a target=”_blank” href="https://www.linkedin.com/in/emmanuelakpandev"><img src="./images/linkedin.svg" alt=""></a>
+<a target=”_blank” href="https://www.twitter.com/heisemmaco"><img src="./images/x-twitter.svg" alt=""></a>
+<a target=”_blank” href="https://www.github.com/heisemmaco-dev"><img src="/images/github.svg" alt=""></a>
+</div>
+ </footer>
     <script src="main.js"></script>
 </body>
 </html>

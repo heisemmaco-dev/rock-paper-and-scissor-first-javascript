@@ -12,9 +12,16 @@ body {
     color: white;
 }
 
+main {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    justify-content: center;
+    align-items: center;
+}
 h1 {
     color: antiquewhite;
-    margin-bottom: 20px;
+    margin-bottom: 13px;
 }
 .newGame {
     background-color: rgb(6, 107, 107);
@@ -26,6 +33,19 @@ h1 {
     cursor: pointer;
     font-weight: 800;
     font-size: 1.1rem;
+    margin-bottom: 17px;
+}
+
+.asktochoose {
+    background-color: rgb(138, 163, 27);
+    color: black;
+
+    padding: 4px;
+    border-radius: 5px;
+    border: none;
+    cursor: pointer;
+    font-weight: 800;
+    font-size: 1rem;
     margin-bottom: 20px;
 }
 
@@ -47,37 +67,11 @@ button:hover {
 .scale-up-center {
     animation: scale-up-center 0.5s cubic-bezier(0.390, 0.575, 0.565, 1.000) ;
 }
-
-/**
- * ----------------------------------------
- * animation scale-up-center
- * ----------------------------------------
- */
- @-webkit-keyframes scale-up-center {
-    0% {
-      -webkit-transform: scale(0.5);
-              transform: scale(0.5);
-    }
-    100% {
-      -webkit-transform: scale(1);
-              transform: scale(1);
-    }
-  }
-  @keyframes scale-up-center {
-    0% {
-      -webkit-transform: scale(0.5);
-              transform: scale(0.5);
-    }
-    100% {
-      -webkit-transform: scale(1);
-              transform: scale(1);
-    }
-  }
   
 .display {
     width: 320px;
     height: 170px;
-    border: 3px solid darkblue;
+   /* border: 3px solid darkblue;*/
     margin-top: 20px;
     display: flex;
     flex-direction: column;
@@ -104,7 +98,7 @@ button:hover {
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: space-evenly;
+/*     justify-content: center; */
     padding: 12px;
     font-size: 1.2rem;
     font-weight: 700;
@@ -124,6 +118,12 @@ button:hover {
     font-size: 1.2rem;
     font-weight: 700;
     border-radius: 20px;
+    gap: 9px;
+}
+
+.result h3 {
+    color: aquamarine;
+    text-decoration: underline;
 }
 
 .theIner {
@@ -189,6 +189,7 @@ button:hover {
 
 .win {
     width: 100%;
+    margin-top: 25px;
 }
 
 .yellow {
@@ -216,4 +217,62 @@ button:hover {
     cursor: pointer;
     font-weight: 800;
     font-size: 0.8rem;
+}
+
+footer {
+background-color: rgb(18, 26, 63);
+width: 100%;
+display: flex;
+align-items: center;
+justify-content: space-evenly;
+font-size: 1rem;
+/* gap: 20px; */
+font-weight: 600;
+margin-top: 20px;
+margin-bottom: -55px;
+}
+
+.back {
+padding: 8px;
+background: linear-gradient(rgb(1, 6, 20), rgb(2, 80, 50));
+border: none;
+color: white;
+font-size: 2rem;
+position: fixed;
+top: 0;
+right: 0;
+z-index: 2;
+border-top-left-radius: 30px;
+border-bottom-left-radius: 30px;
+border: 2px solid brown;
+} 
+
+.white {
+    background-color: rgb(2, 80, 50);
+    color: black;
+}
+
+.dark {
+    background-color: rgb(1, 6, 20);
+}
+.back svg{
+   height: 20px;
+   fill: white;
+   width: 20px; 
+}
+
+footer a img{
+    width: 25px;
+    height: 25px;
+}
+
+@media screen and (min-width: 993px) {
+    .absolute {
+        display: flex;
+        position: absolute;
+        top: 20px;
+        justify-content: space-between;
+        width: 100%;
+        align-items: center;
+    }
 }
