@@ -63,10 +63,6 @@ h1 {
 button:hover {
     outline: 2px solid goldenrod;
 }
-
-.scale-up-center {
-    animation: scale-up-center 0.5s cubic-bezier(0.390, 0.575, 0.565, 1.000) ;
-}
   
 .display {
     width: 320px;
@@ -224,7 +220,8 @@ background-color: rgb(18, 26, 63);
 width: 100%;
 display: flex;
 align-items: center;
-justify-content: space-evenly;
+justify-content: center;
+gap: 80px;
 font-size: 1rem;
 /* gap: 20px; */
 font-weight: 600;
@@ -249,7 +246,7 @@ border: 2px solid brown;
 
 .white {
     background-color: rgb(2, 80, 50);
-    color: black;
+    color: rgb(255, 221, 148);
 }
 
 .dark {
@@ -264,7 +261,10 @@ border: 2px solid brown;
 footer a img{
     width: 25px;
     height: 25px;
+    filter:contrast(5%);
 }
+
+
 
 @media screen and (min-width: 993px) {
     .absolute {
@@ -274,5 +274,11 @@ footer a img{
         justify-content: space-between;
         width: 100%;
         align-items: center;
+    }
+    .theRules {
+        display: flex;
+        flex-direction: column;
+        position: absolute;
+        right: 20px;
     }
 }

@@ -102,13 +102,15 @@ function update() {
 let me = document.querySelector('.resetbtn')
 
 console.log(me)
-    me.addEventListener('click', function(){
+    me.addEventListener('click', reset)
+
+function reset() {
         localStorage.removeItem('score')
         history.win = 0;
         history.lose = 0;
         history.tie = 0;
         update()
-    })
+}
 
 /*{
     win: 0,
@@ -195,3 +197,23 @@ resultDetected = (option) => {
     
     //return scoreMassage.innerHTML = `🙍‍♂ ${option} VS ${computMove} 🤖`
 }
+
+document.body.addEventListener("keydown", (ev) => {
+    let me = ev.key
+
+    if (me === "r") {
+        myRock()
+    } else if (me === "p") {
+        myPaper()
+    } else if (me === "s") {
+        myScissor()
+    } else if (me === "n") {
+        myNewbtn()
+    } else if (me === "Backspace") {
+        reset() 
+    } else if (me === "a") {
+        asktoChooseaMove()
+    } else if (me === 'b') {
+        background()
+    }
+})

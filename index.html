@@ -10,15 +10,15 @@
 <body class="body">
     <main>
     <h1>Rock, Paper & Scissor</h1>
-    <button class="back">
+    <button class="back" onkeydown="lenew(event)">
         <svg xmlns="http://www.w3.org/2000/svg" height="1em" viewBox="0 0 512 512"><path d="M448 256c0-106-86-192-192-192V448c106 0 192-86 192-192zM0 256a256 256 0 1 1 512 0A256 256 0 1 1 0 256z"/></svg>
     </button>
     
     <button class="newGame">New Game</button>
     <div class="wrap">
-    <button class="Rock">✊</button>
-    <button class="paper">🖐</button>
-    <button class="scissor">✌️</button>
+    <button class="Rock" onkeydown="lerock">✊</button>
+    <button class="paper" onkeydown="lepaper()">🖐</button>
+    <button class="scissor" onkeydown="lescissor()">✌️</button>
     </div>
 
     <div class="display">
@@ -43,18 +43,33 @@
  <div class="resulted">
    <!--  <P class="scoreMassage"></P> -->
     <p>Ask me to choose for you</p>
-    <button class="asktochoose">Ask for it</button>
+    <button class="asktochoose" onkeydown="leask()">Ask for it</button>
  </div>
 
  <div class="result">
     <h3>Scores History</h3>
     <P class="scoreHistory"></P>
-    <button class="resetbtn reset">Reset Scores</button>
+    <button class="resetbtn reset" onkeydown="leret()">Reset Scores</button>
  </div>
+</div>
+
+<div class="theRules">
+    you can also use your computer keyboard to play rock paper scissor
+
+    <p>1. To select <mark>ROCK</mark> press <mark>R</mark></p>
+    <p>2. To select <mark>PAPER</mark> press <mark>P</mark></p>
+    <p>3. To select <mark>SCISSOR</mark> press <mark>S</mark></p>
+    <p>4. To select <mark>New Game</mark> press <mark>N</mark></p>
+    <p>5. To select <mark>Ask for it</mark> press <mark>A</mark></p>
+    <p>6. To Change the <mark>background-color</mark> press <mark>B</mark></p>
+    <p>7. To <mark>Reset Scores</mark> you press <mark>BACKSPACE</mark></p>
 </div>
 </main>
  <footer>
+    
 <p>&copy; heisemmaco</p> 
+
+
 
 <div class="wrap">
 <a target=”_blank” href="https://www.linkedin.com/in/emmanuelakpandev"><img src="./linkedin.svg" alt=""></a>
