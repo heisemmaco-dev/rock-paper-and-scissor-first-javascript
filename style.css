@@ -264,7 +264,13 @@ footer a img{
     filter:contrast(5%);
 }
 
+.theRules {
+    display: none;
+}
 
+.theRules b {
+    color: chartreuse;
+}
 
 @media screen and (min-width: 993px) {
     .absolute {
